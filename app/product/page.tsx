@@ -195,10 +195,10 @@ function Chapter({ id }: { id: string }) {
       return (
         <CardSection num="07" title="效果图呈现" subtitle="最终设计方案">
           <p>经过多轮迭代，最终确定以兔子蹲坐姿态作为侧板轮廓，坐板和靠背采用圆角矩形，整体造型圆润亲和。</p>
-          <img src="/images/render-side.PNG" alt="Bunny Tidy 侧面效果图" className="w-full rounded-2xl border border-border/30 my-6" />
+          <img src="/images/render-side.webp" alt="Bunny Tidy 侧面效果图" className="w-full rounded-2xl border border-border/30 my-6" />
           <div className="grid md:grid-cols-2 gap-4 mt-6">
-            <img src="/images/render-front.PNG" alt="正面视角" className="w-full rounded-2xl border border-border/30 aspect-square object-cover" />
-            <img src="/images/render-top.PNG" alt="俯视视角" className="w-full rounded-2xl border border-border/30 aspect-square object-cover" />
+            <img src="/images/render-front.webp" alt="正面视角" className="w-full rounded-2xl border border-border/30 aspect-square object-cover" />
+            <img src="/images/render-top.webp" alt="俯视视角" className="w-full rounded-2xl border border-border/30 aspect-square object-cover" />
           </div>
         </CardSection>
       );

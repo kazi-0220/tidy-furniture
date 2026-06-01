@@ -76,7 +76,7 @@ export default function HomePage() {
       <section className="py-24 px-6 bg-bg-card/40">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <img src="/images/render-side.PNG" alt="Bunny Tidy" className="w-full h-full object-cover" />
+            <img src="/images/render-side.webp" alt="Bunny Tidy" className="w-full h-full object-cover" />
             <div>
               <span className="text-[11px] tracking-[0.2em] uppercase text-text-muted">首款作品</span>
               <h2 className="text-2xl md:text-3xl font-light text-text mt-3 mb-5 leading-tight">
