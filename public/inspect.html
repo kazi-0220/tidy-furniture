@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>GLB Inspector</title></head>
+<body style="background:#f5f0ea;font-family:monospace;padding:24px;font-size:13px;white-space:pre-wrap">
+<h2 style="font-weight:400;font-size:18px">GLB 结构</h2>
+<pre id="out" style="background:#fff;padding:16px;border-radius:6px;min-height:200px">加载中...</pre>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+const out = document.getElementById('out');
+new GLTFLoader().load('/models/chair.glb', (gltf) => {
+  const scene = gltf.scene;
+  let r = `文件名: chair.glb\n`;
+  r += `顶层子节点数: ${scene.children.length}\n`;
+  r += `${'─'.repeat(40)}\n`;
+
+  scene.traverse((child) => {
+    if (!child.isMesh && !child.isGroup) return;
+    const type = child.isMesh ? 'Mesh' : 'Group';
+    const p = child.position;
+    const rot = child.rotation;
+    const s = child.scale;
+    r += `[${type}] "${child.name}"\n`;
+    r += `  位置 (${p.x.toFixed(3)}, ${p.y.toFixed(3)}, ${p.z.toFixed(3)})\n`;
+    r += `  旋转 (${rot.x.toFixed(3)}, ${rot.y.toFixed(3)}, ${rot.z.toFixed(3)})\n`;
+    r += `  缩放 (${s.x.toFixed(3)}, ${s.y.toFixed(3)}, ${s.z.toFixed(3)})\n`;
+    if (child.isMesh) {
+      const g = child.geometry;
+      const box = new THREE.Box3().setFromObject(child);
+      const size = box.getSize(new THREE.Vector3());
+      r += `  包围盒 (${size.x.toFixed(3)}, ${size.y.toFixed(3)}, ${size.z.toFixed(3)})\n`;
+      r += `  顶点数: ${g.attributes.position.count}\n`;
+      if (child.material) r += `  材质: "${child.material.name}"\n`;
+    }
+    r += '\n';
+  });
+
+  out.textContent = r;
+}, undefined, (err) => {
+  out.textContent = '加载失败: ' + err.message;
+});
+</script>
+</body>
+</html>
