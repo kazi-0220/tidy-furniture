@@ -18,23 +18,9 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
         </div>
 
-        {/* 文字 — 居中 */}
-        <div className="relative z-10 text-center px-6 max-w-3xl">
-          <p className="text-white/50 text-xs tracking-[0.35em] uppercase mb-8">
-            榫卯 · 数字 · 温度
-          </p>
-
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white tracking-[-0.02em] leading-[1.05]">
-            当传统榫卯
-            <br />
-            遇见数字温度
-          </h1>
-
-          <p className="text-white/55 text-base md:text-lg mt-8 max-w-lg mx-auto leading-relaxed">
-            每一件家具，都可以是你想象中的样子
-          </p>
-
-          <div className="flex gap-5 mt-12 justify-center">
+        {/* 按钮 — Hero 下半部 */}
+        <div className="relative z-10 text-center px-6 max-w-3xl mt-48 md:mt-56">
+          <div className="flex gap-5 justify-center">
             <Link
               href="/configurator"
               className="px-8 py-3.5 bg-white text-text text-sm font-medium tracking-wide hover:bg-white/90 transition-colors"
